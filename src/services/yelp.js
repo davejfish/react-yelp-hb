@@ -1,10 +1,11 @@
-export async function fetchBusinesses(zip = '93117', search = '') {
+export async function fetchBusinesses(zip = '98466', term = 'pizza') {
   const params = new URLSearchParams();
   params.set('zip', zip);
-  params.set('search', search);
-  const resp = await fetch(`/.netlify/functions/fetch-yelp?${params.toString()}`, {
+  params.set('term', term);
+
+  const response = await fetch(`/.netlify/functions/fetch-yelp?${params.toString()}`, {
     headers: { Accept: 'application/json' },
   });
-  const data = await resp.json();
+  const data = await response.json();
   return data;
 }
