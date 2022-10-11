@@ -3,9 +3,6 @@ export async function fetchBusinesses(zip = '98466', term = 'pizza') {
   params.set('zip', zip);
   params.set('term', term);
 
-  console.log('zip is: ', zip);
-  console.log('term is: ', term);
-
   const response = await fetch(`/.netlify/functions/fetch-yelp?${params.toString()}`, {
     headers: { Accept: 'application/json' },
   });
